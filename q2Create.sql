@@ -34,4 +34,4 @@ CREATE INDEX idx_grade on courseRegistrations(grade);
 CREATE UNIQUE INDEX idx_pointsPerS on pointsPerS(studentregistrationid);
 CREATE INDEX idx_studRegIdandCourseOfferI on courseRegistrations(studentRegistrationId, courseofferId);
 
-ANALYZE VERBOSE
+
