@@ -33,3 +33,4 @@ CREATE UNLOGGED TABLE TeacherAssignmentsToCourses(CourseOfferId int, TeacherId i
 COPY TeacherAssignmentsToCourses(CourseOfferId, TeacherId) FROM '/mnt/ramdisk/tables/TeacherAssignmentsToCourses.table' DELIMITER ',' CSV HEADER;
 CREATE UNLOGGED TABLE StudentAssistants(CourseOfferId int, StudentRegistrationId int);
 COPY StudentAssistants(CourseOfferId, StudentRegistrationId) FROM '/mnt/ramdisk/tables/StudentAssistants.table' DELIMITER ',' CSV HEADER;
+ANALYZE VERBOSE
