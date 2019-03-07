@@ -11,7 +11,7 @@ CREATE UNLOGGED TABLE CourseOffers_temp(CourseOfferId int, CourseId int, year sm
 COPY CourseOffers_temp(CourseOfferId, CourseId, year,  Quartile) FROM '/mnt/ramdisk/tables/CourseOffers.table' DELIMITER ',' CSV HEADER;
 SELECT CO.*, courses.CourseName INTO CourseOffers FROM CourseOffers_temp CO, Courses WHERE Courses.CourseId = CO.CourseID; 
 ALTER TABLE CourseOffers add primary key (CourseOfferId);
-DROP TABLE CourseRegistrations_temp;
+DROP TABLE CourseOffers_temp;
 CREATE UNLOGGED TABLE CourseRegistrations_temp(CourseOfferId int, StudentRegistrationId int, Grade smallint);
 COPY CourseRegistrations_temp(CourseOfferId, StudentRegistrationId, Grade) FROM '/mnt/ramdisk/tables/CourseRegistrations.table' DELIMITER ',' CSV HEADER NULL 'null';
 select courseregistrations_temp.*, studentregistrationstodegrees.studentid, courseoffers.courseid into CourseRegistrations from courseregistrations_temp, studentregistrationstodegrees, courseoffers where courseregistrations_temp.studentregistrationid = studentregistrationstodegrees.studentregistrationid and courseregistrations_temp.courseofferid = courseoffers.courseofferid;
